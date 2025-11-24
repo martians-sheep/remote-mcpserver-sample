@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "remote-mcp-python": {
+      "url": "http://localhost:8000/sse",
+      "headers": {
+        "Authorization": "Bearer your-api-key-here"
+      },
+      "transport": "sse"
+    }
+  }
+}

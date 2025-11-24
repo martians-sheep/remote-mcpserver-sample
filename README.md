@@ -1,20 +1,21 @@
 # リモートMCPサーバー サンプル実装
 
-このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の3つの実装パターンを提供します。
+このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の複数の実装パターンを**TypeScript版とPython版**で提供します。
 
 ## 🎯 プロジェクトの目的
 
 - ローカルMCP（stdio版）とリモートMCP（HTTP/SSE版）の実装の違いを理解する
 - 本格的なデプロイに向けた実装例を提供する
 - Cloudflare Workersでのエッジデプロイの実装例を示す
+- **TypeScript版とPython版の両方を提供**し、言語の選択肢を広げる
 
 ## 📁 プロジェクト構成
 
 ```
 remote-mcpserver-sample/
-├── src/
+├── src/                    # TypeScript版
 │   ├── shared/
-│   │   ├── tools/          # 共通ツール実装（全サーバーで使用）
+│   │   ├── tools/          # 共通ツール実装
 │   │   └── types/          # 型定義
 │   ├── local/
 │   │   └── server.ts       # ローカルMCPサーバー（stdio版）
@@ -26,6 +27,17 @@ remote-mcpserver-sample/
 │   └── utils/
 │       ├── auth.ts         # 認証ユーティリティ
 │       └── logger.ts       # ログ
+├── python/                 # Python版 🐍
+│   ├── src/
+│   │   ├── shared/
+│   │   │   └── tools/      # 共通ツール実装
+│   │   ├── local/
+│   │   │   └── server.py   # ローカルMCPサーバー（stdio版）
+│   │   └── remote/
+│   │       └── fastapi/
+│   │           └── server.py  # リモートMCPサーバー（FastAPI版）
+│   ├── requirements.txt
+│   └── README.md
 ├── config/                 # Claude Desktop設定ファイル
 ├── deploy/                 # デプロイ設定
 ├── docs/                   # ドキュメント
@@ -51,10 +63,17 @@ remote-mcpserver-sample/
 
 ### 前提条件
 
+**TypeScript版:**
 - Node.js 18以上
 - npm または yarn
 
+**Python版:**
+- Python 3.10以上
+- pip
+
 ### インストール
+
+#### TypeScript版
 
 ```bash
 # リポジトリのクローン
@@ -66,6 +85,19 @@ npm install
 
 # ビルド
 npm run build
+```
+
+#### Python版
+
+```bash
+cd python
+
+# 仮想環境の作成（推奨）
+python3 -m venv venv
+source venv/bin/activate
+
+# 依存関係のインストール
+pip install -r requirements.txt
 ```
 
 ### 1. ローカルMCPサーバー（stdio版）
