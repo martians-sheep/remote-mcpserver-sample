@@ -1,0 +1,32 @@
+{
+  "name": "mcp-client-sample",
+  "version": "1.0.0",
+  "description": "Sample MCP client implementations",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "local": "tsx src/local-client.ts",
+    "remote": "tsx src/remote-client.ts",
+    "interactive": "tsx src/interactive.ts",
+    "example:calculator": "tsx examples/calculator-example.ts",
+    "example:storage": "tsx examples/storage-example.ts"
+  },
+  "keywords": [
+    "mcp",
+    "client",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "dotenv": "^16.4.5",
+    "readline": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

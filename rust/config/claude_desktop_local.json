@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rust-mcp-local": {
+      "command": "/absolute/path/to/rust/target/release/mcp-local",
+      "args": []
+    }
+  }
+}

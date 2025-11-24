@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "rust-mcp-remote": {
+      "url": "http://localhost:8080/sse",
+      "headers": {
+        "Authorization": "Bearer your-api-key-here"
+      },
+      "transport": "sse"
+    }
+  }
+}

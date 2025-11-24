@@ -1,0 +1,43 @@
+# Cloudflare Workers設定ファイル
+# wrangler.toml
+
+name = "remote-mcp-server"
+main = "src/remote/cloudflare/worker.ts"
+compatibility_date = "2024-11-01"
+
+# アカウント情報（デプロイ前に設定してください）
+# account_id = "your-account-id"
+
+# Durable Objects設定
+[[durable_objects.bindings]]
+name = "MCP_STORAGE"
+class_name = "MCPStorage"
+script_name = "remote-mcp-server"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["MCPStorage"]
+
+# 環境変数（シークレット）
+# 以下のコマンドで設定:
+# wrangler secret put API_KEY
+
+# [vars]
+# LOG_LEVEL = "info"
+
+# ルーティング（カスタムドメインを使用する場合）
+# routes = [
+#   { pattern = "mcp.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# ビルド設定
+[build]
+command = "npm run build"
+
+# 開発環境設定
+[env.development]
+name = "remote-mcp-server-dev"
+
+# 本番環境設定
+[env.production]
+name = "remote-mcp-server-prod"

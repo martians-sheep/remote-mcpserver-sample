@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "local-mcp-sample-dev": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/absolute/path/to/remote-mcpserver-sample/src/local/server.ts"
+      ],
+      "env": {
+        "LOG_LEVEL": "debug"
+      }
+    }
+  }
+}

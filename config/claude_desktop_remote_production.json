@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "remote-mcp-sample-production": {
+      "url": "https://your-server.railway.app/sse",
+      "headers": {
+        "Authorization": "Bearer your-production-api-key-here"
+      },
+      "transport": "sse"
+    }
+  }
+}

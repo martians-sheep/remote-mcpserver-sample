@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "moduleResolution": "bundler",
+    "types": ["@cloudflare/workers-types"],
+    "outDir": "./dist/cloudflare",
+    "noEmit": true
+  },
+  "include": ["src/remote/cloudflare/**/*", "src/shared/**/*"],
+  "exclude": ["node_modules"]
+}

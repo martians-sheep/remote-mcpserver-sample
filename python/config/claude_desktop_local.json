@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "local-mcp-python": {
+      "command": "python3",
+      "args": [
+        "/absolute/path/to/remote-mcpserver-sample/python/src/local/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/absolute/path/to/remote-mcpserver-sample/python"
+      }
+    }
+  }
+}
