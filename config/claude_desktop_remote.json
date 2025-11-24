@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "remote-mcp-sample": {
+      "url": "http://localhost:3000/sse",
+      "headers": {
+        "Authorization": "Bearer your-api-key-here"
+      },
+      "transport": "sse"
+    }
+  }
+}

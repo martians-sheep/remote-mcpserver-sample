@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "remote-mcp-cloudflare": {
+      "url": "https://remote-mcp-server.your-subdomain.workers.dev/sse",
+      "headers": {
+        "Authorization": "Bearer your-cloudflare-api-key-here"
+      },
+      "transport": "sse"
+    }
+  }
+}

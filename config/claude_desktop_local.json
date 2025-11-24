@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "local-mcp-sample": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/remote-mcpserver-sample/dist/local/server.js"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
