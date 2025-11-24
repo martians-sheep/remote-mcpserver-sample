@@ -1,13 +1,13 @@
 # リモートMCPサーバー サンプル実装
 
-このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の複数の実装パターンを**TypeScript版とPython版**で提供します。
+このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の複数の実装パターンを**TypeScript版、Python版、Go版**で提供します。
 
 ## 🎯 プロジェクトの目的
 
 - ローカルMCP（stdio版）とリモートMCP（HTTP/SSE版）の実装の違いを理解する
 - 本格的なデプロイに向けた実装例を提供する
 - Cloudflare Workersでのエッジデプロイの実装例を示す
-- **TypeScript版とPython版の両方を提供**し、言語の選択肢を広げる
+- **TypeScript版、Python版、Go版の3言語で提供**し、言語の選択肢を広げる
 
 ## 📁 プロジェクト構成
 
@@ -38,6 +38,19 @@ remote-mcpserver-sample/
 │   │           └── server.py  # リモートMCPサーバー（FastAPI版）
 │   ├── requirements.txt
 │   └── README.md
+├── go/                     # Go版 🚀
+│   ├── cmd/
+│   │   ├── local/
+│   │   │   └── main.go     # ローカルMCPサーバー（stdio版）
+│   │   └── remote/
+│   │       └── main.go     # リモートMCPサーバー（Gin版）
+│   ├── internal/
+│   │   ├── mcp/            # MCPプロトコル実装
+│   │   └── tools/          # 共通ツール実装
+│   ├── go.mod
+│   └── README.md
+├── client/                 # MCPクライアント実装
+├── chat-ui/               # Web UI (Next.js)
 ├── config/                 # Claude Desktop設定ファイル
 ├── deploy/                 # デプロイ設定
 ├── docs/                   # ドキュメント
@@ -98,6 +111,18 @@ source venv/bin/activate
 
 # 依存関係のインストール
 pip install -r requirements.txt
+```
+
+#### Go版
+
+```bash
+cd go
+
+# 依存関係のインストール
+go mod download
+
+# ビルド
+make build
 ```
 
 ### 1. ローカルMCPサーバー（stdio版）
