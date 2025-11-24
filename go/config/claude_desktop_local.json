@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "go-mcp-local": {
+      "command": "/absolute/path/to/go/bin/local-server",
+      "args": []
+    }
+  }
+}
