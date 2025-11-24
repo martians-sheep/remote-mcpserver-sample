@@ -1,13 +1,13 @@
 # リモートMCPサーバー サンプル実装
 
-このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の複数の実装パターンを**TypeScript版、Python版、Go版**で提供します。
+このプロジェクトは、**ローカルMCPサーバー**と**リモートMCPサーバー**の違いを明確に示すサンプル実装です。Model Context Protocol (MCP)の複数の実装パターンを**TypeScript版、Python版、Go版、Rust版**で提供します。
 
 ## 🎯 プロジェクトの目的
 
 - ローカルMCP（stdio版）とリモートMCP（HTTP/SSE版）の実装の違いを理解する
 - 本格的なデプロイに向けた実装例を提供する
 - Cloudflare Workersでのエッジデプロイの実装例を示す
-- **TypeScript版、Python版、Go版の3言語で提供**し、言語の選択肢を広げる
+- **TypeScript版、Python版、Go版、Rust版の4言語で提供**し、言語の選択肢を広げる
 
 ## 📁 プロジェクト構成
 
@@ -48,6 +48,16 @@ remote-mcpserver-sample/
 │   │   ├── mcp/            # MCPプロトコル実装
 │   │   └── tools/          # 共通ツール実装
 │   ├── go.mod
+│   └── README.md
+├── rust/                   # Rust版 🦀
+│   ├── mcp-core/           # コアライブラリ
+│   │   └── src/
+│   │       ├── types.rs    # MCP型定義
+│   │       ├── server.rs   # サーバーロジック
+│   │       └── tools/      # ツール実装
+│   ├── mcp-local/          # ローカルMCPサーバー（stdio版）
+│   ├── mcp-remote/         # リモートMCPサーバー（Axum版）
+│   ├── Cargo.toml
 │   └── README.md
 ├── client/                 # MCPクライアント実装
 ├── chat-ui/               # Web UI (Next.js)
@@ -123,6 +133,15 @@ go mod download
 
 # ビルド
 make build
+```
+
+#### Rust版
+
+```bash
+cd rust
+
+# ビルド（依存関係のダウンロードも自動）
+cargo build
 ```
 
 ### 1. ローカルMCPサーバー（stdio版）
